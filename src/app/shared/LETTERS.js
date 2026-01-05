@@ -1,19 +1,28 @@
+import A from '../assets/images/a.png';
+import B from '../assets/images/b.png';
+import C from '../assets/images/c.png';
+import D from '../assets/images/d.png'
+
 export const LETTERS = [
     {
         id: 1,
         name: 'A',
+        src: A,
     },
     {
         id: 2,
         name: 'B',
+        src: B,
     },
     {
         id: 3,
         name: 'C',
+        src: C,
     },
     {
         id: 4,
         name: 'D',
+        src: D,
     },
     {
         id: 5,
