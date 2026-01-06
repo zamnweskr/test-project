@@ -132,7 +132,7 @@ export const LETTERS = [
         src: U,
     },
     {
-        id: 23,
+        id: 22,
         name: 'V',
         src: V,
     },
