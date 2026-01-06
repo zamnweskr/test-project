@@ -24,9 +24,16 @@ export default function Grid() {
       setSecondSelected(index);
       
       const newItems = [...items];
+      console.log(newItems)
+
       const temp = newItems[firstSelected];
+      console.log(temp)
+
       newItems[firstSelected] = newItems[index];
+      console.log(newItems[firstSelected])
+
       newItems[index] = temp;
+      console.log(newItems[index])
       
       setItems(newItems);
       
