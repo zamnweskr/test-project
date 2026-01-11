@@ -18,7 +18,13 @@ const gridGenerator = () => {
         const rowArray = []
         for (let col = 0; col < 6; col++) {
             const randomLetter = getRandomLetter()
-            rowArray.push(randomLetter)
+            const letterCell = {
+                ...randomLetter,
+                id: `${row}-${col}`,
+                row,
+                col,
+            }
+            rowArray.push(letterCell)
         }
         grid.push(rowArray)
     }
