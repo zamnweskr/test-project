@@ -1,5 +1,5 @@
 import { LETTERS } from "../shared/LETTERS"
-import React, { useState } from 'react';
+import React from 'react';
 
 const gridGenerator = () => {
     const vowels = LETTERS.filter(letters => {

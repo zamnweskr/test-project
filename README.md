@@ -6,33 +6,44 @@ A Candy Crush-style word puzzle game where players swap adjacent letters in a 6x
 
 Game Specifications
 
-Grid Size: 6x6 (36 letters)
+    Grid Size: 6x6 (36 letters)
 
-Interaction: Click two adjacent tiles to swap them
+    Interaction: Click two adjacent tiles to swap them
 
-Minimum Word Length: 4 letters
+    Minimum Word Length: 4 letters
 
-Valid Directions: Horizontal and vertical only
+    Valid Directions: Horizontal and vertical only
 
-Game Mode: Timed - find as many words as possible before timer expires
+    Game Mode: Timed - find as many words as possible before timer expires
 
-Scoring: Simple count + bonus for longer words
+    Scoring: Simple count + bonus for longer words
 
 Phase 1: Grid Foundation & Data Structures
 
 1.1 Grid Data Structure
-Design a 6x6 2D array structure to hold letter objects
-What letter is it? (A, B, C, etc.)
-Where is it located? (row 2, column 3?)
-What image should it show? (the picture from LETTERS.js)
-Each cell contains: letter, id, position {row, col}, image src, state
-Create initial state structure in main game component
-we want random letters in a 6x6
-Is it selected right now? (yes/no)
-Is it matched? (yes/no)
+
+    Design a 6x6 2D array structure to hold letter objects
+
+    What letter is it? (A, B, C, etc.)
+
+    Where is it located? (row 2, column 3?)
+
+    What image should it show? (the picture from LETTERS.js)
+
+    Each cell contains: letter, id, position {row, col}, image src, state
+
+    Create initial state structure in main game component
+
+    we want random letters in a 6x6
+
+    Is it selected right now? (yes/no)
+
+    Is it matched? (yes/no)
 
 1.2 Game State Management
+
 Set up state for: grid, selectedTile, score, foundWords, timer, gameStatus, isProcessing
+
 Choose state management approach (useState/useReducer/Context)
 
 
@@ -74,9 +85,17 @@ increase word ceiling
 keep time, maybe decrease?
 
 1.3 Random Letter Generator
-Function to generate random letters (weight vowels vs consonants)
-Function to create initial 6x6 grid
-Ensure grid doesn't start with accidental words
+    The logic for the letter generator is fairly straightforward. Our first variable, 'vowels', is filtering through our LETTERS array that we have imported, and it is creating an array of vowels by checking if the letter object contains the property of 'vowel'
+
+    We have done the same thing with our second variable, 'consonants'
+
+    After initializing these two variables, we then call to a function that will give us a random letter, based on a ratio that we came up with of 60% consonants to 40% vowels. 
+    
+    Our first variable 'chosenLetters' uses a ternary operator. We ask it to give us a random number, and if it is less than 0.4 (40%), then it will pull from our 'vowels' array. If it is above 0.4 (60%) it will pull from our 'consonants' array. 
+    
+    Our next variable 'randomChosen' is set up to pull a random letter from either the 'vowels' or 'consonants' array, depending on what array was chosen to have a letter pulled from it.
+
+    Finally, we return the letter that was randomly chosen, from a randomly chosen array of either consonants or vowels. The reasoning for this logic is to preventthe game from populating a bunch of letters that you can't make words from
 
 Phase 2: Core Components
 2.1 LetterTile Component
