@@ -1,4 +1,4 @@
-import gridGenerator from "../utils/gridGenerator";
+import gridGenerator from "../utils/gridGenerator"
 
 function Grid() {
   return (
