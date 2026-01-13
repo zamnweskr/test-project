@@ -1,0 +1,14 @@
+.grid-container {
+    margin: auto;
+    max-width: 600px;
+}
+.grid-row {
+    display: flex;
+    margin-bottom: 3px;
+}
+.letter-tile {
+    margin: 10px;
+    width: 80px;
+    height: 80px;
+    
+}
