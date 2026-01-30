@@ -6,9 +6,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedTile, setGrid, setFoundWords, removeMatchedLetters, letterDrop, refillLetters, addCompletedWords, setGameWon } from './app/features/game/gameSlice.js';
 import GameWon from './app/components/GameWon.jsx';
 import GameTimer from './app/components/GameTimer';
+import StartScreen from './app/components/StartScreen'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import './index.css'
+import React, { useState } from 'react';
 
 
 function App() {
@@ -21,6 +23,11 @@ function App() {
     const gameWon = useSelector((state) => state.game.gameWon)
     const gameKey = useSelector((state) => state.game.gameKey)
     const initialGameTime = 120
+    const [isGameStarted, setIsGameStarted] = useState(false);
+  
+    const startGameHandler = () => {
+     setIsGameStarted(true);
+     };
 
     const onTileClick = (row, col) => {
         if (selectedTile === null) {
@@ -66,8 +73,11 @@ function App() {
             })
         }
     }
+    
 
     return (
+        <>
+        {isGameStarted ? (
         <>
             <GameWon />
             <TargetWords />
@@ -78,8 +88,13 @@ function App() {
                 foundWords={foundWords}
             />
         </>
-
+                      ) : (
+        <StartScreen onStartGame={startGameHandler} />
+        )}
+        </>
     )
 }
+
+
 
 export default App
